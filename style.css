@@ -311,6 +311,10 @@ details > p { padding-bottom: 12px; color: var(--c-sub); }
 }
 .photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
+.older { margin-top: 40px; border-top: 1px solid var(--c-line); }
+.older > summary { color: var(--c-board); }
+.older .archive-list { padding-top: 24px; }
+
 /* 写真の拡大表示 */
 .lightbox {
   max-width: 92vw;

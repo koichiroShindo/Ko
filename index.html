@@ -21,8 +21,8 @@
     <div class="container header-inner">
       <a class="logo" href="#top">中央大学 商学部ゼミナール連合会</a>
       <nav class="nav" aria-label="ページ内の移動">
+        <a href="#archive">最近の開催報告</a>
         <a href="#schedule">年間スケジュール</a>
-        <a href="#archive">開催報告</a>
         <a href="#about">私たちについて</a>
         <a href="#faq">よくある質問</a>
         <a href="#contact">お問い合わせ</a>
@@ -45,10 +45,22 @@
       </div>
     </section>
 
+    <section id="archive" class="section section-paper">
+      <div class="container">
+        <h2 class="section-title">最近の開催報告</h2>
+        <p class="section-lead">直近に開いたイベントの様子です。最新情報はInstagramとXでも発信しています。</p>
+        <div id="archive-list" class="archive-list"></div>
+        <details class="older" id="archive-older-wrap" hidden>
+          <summary>それより前の開催報告を見る</summary>
+          <div id="archive-older" class="archive-list"></div>
+        </details>
+      </div>
+    </section>
+
     <section id="schedule" class="section">
       <div class="container">
         <h2 class="section-title">年間スケジュール</h2>
-        <p class="section-lead">例年開催しているイベントです。マス目のイベント名を押すと、下に詳細が開きます。</p>
+        <p class="section-lead">毎年開いているイベントです。日程は年度ごとに変わります。マス目のイベント名を押すと、下に詳細が開きます。</p>
 
         <div class="year-grid">
             <div class="month-cell" data-month="4"><span class="month-num">4<small>月</small></span><a class="chip" href="#shinkan">新歓・履修相談</a></div>
@@ -57,8 +69,8 @@
             <div class="month-cell" data-month="7"><span class="month-num">7<small>月</small></span><a class="chip chip-guest" href="#career">就活講演会</a></div>
             <div class="month-cell" data-month="8"><span class="month-num">8<small>月</small></span><a class="chip" href="#camp">夏合宿</a></div>
             <div class="month-cell" data-month="9"><span class="month-num">9<small>月</small></span><a class="chip" href="#joint-briefing">ゼミ合同説明会</a></div>
-            <div class="month-cell" data-month="10"><span class="month-num">10<small>月</small></span><a class="chip" href="#joint-briefing">ゼミ合同説明会</a></div>
-            <div class="month-cell" data-month="11"><span class="month-num">11<small>月</small></span><a class="chip" href="#autumn-meeting">秋季ゼミ長会議</a></div>
+            <div class="month-cell" data-month="10"><span class="month-num">10<small>月</small></span><a class="chip" href="#joint-briefing">ゼミ合同説明会</a><a class="chip" href="#ball-games-autumn">秋季球技大会</a></div>
+            <div class="month-cell" data-month="11"><span class="month-num">11<small>月</small></span><a class="chip" href="#ball-games-autumn">秋季球技大会</a><a class="chip" href="#autumn-meeting">秋季ゼミ長会議</a></div>
             <div class="month-cell" data-month="12"><span class="month-num">12<small>月</small></span><a class="chip" href="#presentation">プレゼンテーション大会</a><a class="chip chip-guest" href="#career">就活講演会</a></div>
             <div class="month-cell" data-month="1"><span class="month-num">1<small>月</small></span><span class="chip-empty">—</span></div>
             <div class="month-cell" data-month="2"><span class="month-num">2<small>月</small></span><span class="chip-empty">—</span></div>
@@ -85,7 +97,7 @@
           <details id="ball-games">
             <summary><span class="when">6月</span><span class="what">春季ゼミ対抗球技大会</span><span class="tag">全学年</span></summary>
             <div class="detail-body">
-              <p>商学部恒例の、ゼミ対抗の球技大会です。ゼミのメンバー3名以上でチームを組んでエントリーします（性別は問いません）。</p>
+              <p>商学部恒例の、ゼミ対抗の球技大会です（秋にも開催しています）。ゼミのメンバー3名以上でチームを組んでエントリーします（性別は問いません）。</p>
               <p><strong>対象</strong>：ベーシック演習を履修している1年生／課題演習を履修している2年生／国際演習・演習Ⅰ〜Ⅳ・国際教養演習を履修している3・4年生</p>
               <p class="highlight">2026年度：6月20日（土）第2体育館 一般フィールドA/B、種目はバスケットボール。賞金は1位3万円・2位2万円・3位1万円、チームワーク賞5,000円</p>
             </div>
@@ -115,6 +127,14 @@
               <p>気になるゼミの発表後には、ゼミ生や先生に直接質問することもできます。毎年、多くの2年生が参加しています。</p>
             </div>
           </details>
+          <details id="ball-games-autumn">
+            <summary><span class="when">10月〜11月</span><span class="what">秋季ゼミ対抗球技大会</span><span class="tag">全学年</span></summary>
+            <div class="detail-body">
+              <p>春に続く、秋のゼミ対抗球技大会です。チームスポーツを通じて、普段のゼミ活動とは違う場でゼミ生同士の交流を深めます。</p>
+              <p><strong>対象</strong>：ベーシック演習を履修している1年生／課題演習を履修している2年生／国際演習・演習Ⅰ〜Ⅳ・国際教養演習を履修している3・4年生</p>
+              <p>種目は、大会後の参加者アンケートの希望を参考に決めています。</p>
+            </div>
+          </details>
           <details id="autumn-meeting">
             <summary><span class="when">11月</span><span class="what">秋季ゼミ長会議</span><span class="tag">ゼミ長</span></summary>
             <div class="detail-body">
@@ -132,13 +152,6 @@
             </div>
           </details>
         </div>
-      </div>
-    </section>
-
-    <section id="archive" class="section section-paper">
-      <div class="container">
-        <h2 class="section-title">開催報告</h2>
-        <div id="archive-list" class="archive-list"></div>
       </div>
     </section>
 

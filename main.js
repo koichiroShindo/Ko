@@ -92,9 +92,16 @@ function render() {
     ? upcoming.map(upcomingCard).join("")
     : `<p class="empty">次回のイベントは準備中です。決まり次第、XとInstagramでもお知らせします。</p>`;
 
+  // 最近の3件はそのまま表示し、それより前のものは「それより前の開催報告を見る」の中にしまう
+  const RECENT_COUNT = 3;
   document.getElementById("archive-list").innerHTML = past.length
-    ? past.map(archiveCard).join("")
+    ? past.slice(0, RECENT_COUNT).map(archiveCard).join("")
     : `<p class="empty">開催報告はまだありません。</p>`;
+  const older = past.slice(RECENT_COUNT);
+  if (older.length) {
+    document.getElementById("archive-older").innerHTML = older.map(archiveCard).join("");
+    document.getElementById("archive-older-wrap").hidden = false;
+  }
 }
 
 // 年間スケジュールで今月のマスに印をつける
