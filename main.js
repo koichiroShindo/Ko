@@ -52,6 +52,11 @@ function photoTag(event, photo) {
     `<img src="${PHOTO_DIR}${escapeHtml(photo)}" alt="${escapeHtml(event.title)}の様子" loading="lazy"></button>`;
 }
 
+function linkTag(event) {
+  if (!event.link) return "";
+  return `<p><a href="${escapeHtml(event.link.url)}" target="_blank" rel="noopener">${escapeHtml(event.link.label)}</a></p>`;
+}
+
 function archiveCard(event) {
   const date = parseDate(event.date);
   const photos = event.photos || [];
@@ -61,10 +66,11 @@ function archiveCard(event) {
   return `
     <article class="report">
       <div class="report-text">
-        <p class="report-date">${formatDate(date)}${sampleBadge(event)}</p>
+        <p class="report-date">${escapeHtml(event.dateText || formatDate(date))}${sampleBadge(event)}</p>
         <h3>${escapeHtml(event.title)}</h3>
         ${speakerLine(event)}
-        <p>${escapeHtml(event.summary)}</p>
+        <p class="report-summary">${escapeHtml(event.summary)}</p>
+        ${linkTag(event)}
       </div>
       ${gallery}
     </article>`;
