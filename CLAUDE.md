@@ -2,10 +2,13 @@
 
 中央大学商学部ゼミナール連合会（商ゼミ連）の公式サイト。GitHub Pages で `claude/claude-code-capabilities-cz0hk1` ブランチから公開している（https://koichiroshindo.github.io/Ko/）。
 
-- `index.html`：ページ本体
+- `index.html`：トップページ（次回のイベント、最近の開催報告、年間スケジュール、FAQ、お問い合わせ）
+- `about.html`：私たちについて（活動理念、主な活動、運営のしくみ）
+- `members.html`：メンバー（`data/members.js` から運営メンバー一覧を組み立てる）
 - `style.css`：見た目
-- `main.js`：`data/events.js` から「次回のイベント」と「開催報告」を組み立てる
-- `data/events.js`：イベント情報。更新はここだけで済むようにしている
+- `main.js`：`data/events.js` と `data/members.js` から各ページの一覧を組み立てる
+- `data/events.js`：イベント情報。更新はここだけで済むようにしている。毎年の行事の回には `series` を付けると、年間スケジュールの詳細に写真が並ぶ（外部講師の講演会には付けない）
+- `data/members.js`：運営メンバー情報
 - `images/events/`：開催報告の写真
 - `更新方法.md`：運営メンバー向けの更新手順
 

@@ -16,10 +16,15 @@
  *   photos   : 写真のファイル名。images/events/ フォルダに入れたファイル名を書きます（なければ [] のまま）
  *   dateText : 日付の表示を変えたいときだけ書きます（例 "2026年8月6日〜8日"）。並び順には date が使われます
  *   link     : 関連リンク（例 { url: "https://...", label: "音声データを聞く（manaba）" }）。なければ書かなくてOK
+ *   series   : 年間スケジュールのどの行事の回かを書きます。書くと、年間スケジュールの詳細に写真と報告が並びます
+ *              shinkan（新歓・履修相談） spring-meeting（春季ゼミ長会議） ball-games（春季球技大会） camp（夏合宿）
+ *              joint-briefing（合同説明会） ball-games-autumn（秋季球技大会） autumn-meeting（秋季ゼミ長会議） presentation（プレゼン大会）
+ *              外部講師の講演会など、毎年の行事でないものには書きません
  *   sample   : true にすると「サンプル」と表示されます。本番の情報に差し替えたら、この行は消してください
  */
 window.EVENTS = [
   {
+    series: "joint-briefing",
     date: "2026-09-28",
     dateText: "2026年9月28日〜10月2日（5日間）",
     time: "17:00〜19:15",
@@ -45,6 +50,7 @@ window.EVENTS = [
     photos: ["2026-09-25-1.jpg"]
   },
   {
+    series: "camp",
     date: "2026-08-06",
     dateText: "2026年8月6日〜8日",
     time: "",
@@ -68,6 +74,7 @@ window.EVENTS = [
     photos: ["2026-07-07-1.jpg"]
   },
   {
+    series: "ball-games",
     date: "2026-06-20",
     time: "",
     place: "第2体育館 一般フィールドA/B",
@@ -79,6 +86,7 @@ window.EVENTS = [
     photos: []
   },
   {
+    series: "shinkan",
     date: "2026-04-01",
     dateText: "2026年4月1日・3日・6日・8日",
     time: "",
@@ -91,6 +99,7 @@ window.EVENTS = [
     photos: []
   },
   {
+    series: "presentation",
     date: "2025-12-13",
     time: "",
     place: "",
@@ -113,6 +122,7 @@ window.EVENTS = [
     photos: []
   },
   {
+    series: "ball-games-autumn",
     date: "2025-10-18",
     time: "",
     place: "第2体育館 2階アリーナ",

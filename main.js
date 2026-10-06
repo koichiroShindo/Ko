@@ -77,6 +77,7 @@ function archiveCard(event) {
 }
 
 function render() {
+  if (!document.getElementById("upcoming-list")) return;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const events = (window.EVENTS || []).slice();
@@ -102,6 +103,52 @@ function render() {
     document.getElementById("archive-older").innerHTML = older.map(archiveCard).join("");
     document.getElementById("archive-older-wrap").hidden = false;
   }
+}
+
+// 年間スケジュールの各行事の詳細に、これまでの回の写真と報告を並べる
+function renderSeriesHistory() {
+  const events = (window.EVENTS || [])
+    .filter(e => e.series)
+    .sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  document.querySelectorAll(".schedule-details details[id]").forEach(details => {
+    const past = events.filter(e => e.series === details.id);
+    if (!past.length) return;
+    const items = past.map(event => {
+      const photos = event.photos || [];
+      const gallery = photos.length
+        ? `<div class="history-photos">${photos.map(p => photoTag(event, p)).join("")}</div>`
+        : "";
+      return `
+        <li>
+          <p class="history-label">${escapeHtml(event.dateText || formatDate(parseDate(event.date)))}　${escapeHtml(event.title)}</p>
+          ${gallery}
+        </li>`;
+    }).join("");
+    details.querySelector(".detail-body").insertAdjacentHTML("beforeend",
+      `<div class="history"><p class="history-title">これまでの様子</p><ul>${items}</ul></div>`);
+  });
+}
+
+// メンバーページの運営メンバー一覧（data/members.js）
+function renderMembers() {
+  const list = document.getElementById("member-list");
+  if (!list) return;
+  list.innerHTML = (window.MEMBERS || []).map(m => {
+    const photo = m.photo
+      ? `<img class="member-photo" src="images/members/${escapeHtml(m.photo)}" alt="${escapeHtml(m.name)}">`
+      : "";
+    const meta = [m.grade, m.seminar].filter(Boolean).map(escapeHtml).join("・");
+    return `
+      <article class="member">
+        <p class="member-role">${escapeHtml(m.role)}</p>
+        <div class="member-body">
+          ${photo}
+          <h3>${escapeHtml(m.name)}</h3>
+          ${meta ? `<p class="member-meta">${meta}</p>` : ""}
+          ${m.comment ? `<p class="member-comment">${escapeHtml(m.comment)}</p>` : ""}
+        </div>
+      </article>`;
+  }).join("");
 }
 
 // 年間スケジュールで今月のマスに印をつける
@@ -138,6 +185,8 @@ function setupLightbox() {
 }
 
 render();
+renderSeriesHistory();
+renderMembers();
 markThisMonth();
 setupLightbox();
 window.addEventListener("hashchange", openFromHash);

@@ -282,6 +282,19 @@ details > p { padding-bottom: 12px; color: var(--c-sub); }
   font-weight: 700;
 }
 :target { scroll-margin-top: 16px; }
+.history {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--c-line);
+}
+.history-title { font-weight: 700; }
+.history ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+.history-label { margin: 0 0 8px; color: var(--c-sub); font-size: 0.9rem; }
+.history-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 4px;
+}
 
 /* 開催報告 */
 .archive-list { display: grid; gap: 40px; }
@@ -370,6 +383,40 @@ details > p { padding-bottom: 12px; color: var(--c-sub); }
 .contact dd { margin: 0; overflow-wrap: anywhere; }
 .contact small { color: var(--c-sub); }
 
+/* ページ間のリンク */
+.page-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; font-weight: 700; }
+.page-links a::after { content: " →"; }
+
+/* 下層ページ */
+.page-hero { padding: 48px 0 56px; }
+.page-hero h1 {
+  margin: 8px 0 16px;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 900;
+}
+.page-hero .hero-lead { max-width: 680px; }
+.breadcrumb { margin: 0; color: var(--c-sub); font-size: 0.85rem; }
+.nav a[aria-current="page"] { color: var(--c-ink); font-weight: 700; }
+
+/* メンバー */
+.group-photo { margin: 0; }
+.group-photo .photo { display: block; width: 100%; }
+.group-photo img { width: 100%; aspect-ratio: auto; }
+.group-photo figcaption { margin-top: 8px; color: var(--c-sub); font-size: 0.9rem; }
+.member-list { border-top: 1px solid var(--c-line); }
+.member {
+  display: grid;
+  grid-template-columns: 10em 1fr;
+  gap: 0 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--c-line);
+}
+.member-photo { margin-bottom: 8px; width: 96px; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-box); }
+.member-role { margin: 0; color: var(--c-board); font-weight: 700; }
+.member h3 { margin: 0; font-size: 1.2rem; }
+.member-meta { margin: 0; color: var(--c-sub); font-size: 0.9rem; }
+.member-comment { margin: 4px 0 0; }
+
 /* フッター */
 .site-footer {
   padding: 24px 0;
@@ -389,6 +436,7 @@ details > p { padding-bottom: 12px; color: var(--c-sub); }
 @media (max-width: 420px) {
   .year-grid { grid-template-columns: repeat(2, 1fr); }
   .contact div { grid-template-columns: 1fr; gap: 4px; }
+  .member { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
