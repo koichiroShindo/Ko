@@ -12,164 +12,156 @@
   <link rel="canonical" href="https://koichiroshindo.github.io/Ko/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip" href="#main">本文へ移動</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#top"><span class="logo-mark">商</span>中央大学 商ゼミ連</a>
-      <nav class="nav">
-        <a href="#upcoming">次回のイベント</a>
+      <a class="logo" href="#top">中央大学 商学部ゼミナール連合会</a>
+      <nav class="nav" aria-label="ページ内の移動">
         <a href="#schedule">年間スケジュール</a>
         <a href="#archive">開催報告</a>
-        <a href="#faq">FAQ</a>
+        <a href="#about">私たちについて</a>
+        <a href="#faq">よくある質問</a>
         <a href="#contact">お問い合わせ</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Chuo University Faculty of Commerce Seminar Federation</p>
-        <h1>商学部の活性化で、<br><span class="accent">未来を拓く。</span></h1>
-        <p class="hero-lead">中央大学商学部ゼミナール連合会は、新歓・ゼミ合同説明会・就活講座・ゼミ対抗球技大会・プレゼンテーション大会など、商学部生のためのイベントを1年を通して企画・運営しています。</p>
-        <div class="hero-actions">
-          <a class="button" href="#upcoming">次回のイベントを見る</a>
-          <a class="button button-ghost" href="#schedule">年間スケジュール</a>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>商学部の活性化で、<br><span class="marker">未来を拓く。</span></h1>
+          <p class="hero-lead">新入生の履修相談から、2年生のゼミ選び、3・4年生の研究発表まで。商学部ゼミナール連合会は、商学部生の4年間に合わせて1年に8つのイベントを開いています。</p>
+          <p class="hero-facts">秋の球技大会には<strong>20以上のゼミ</strong>がエントリー。就活印象アップ講座の満足度は<strong>99％</strong>（男性講座）。</p>
         </div>
-      </div>
-    </section>
-
-    <section id="about" class="section section-tight">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Philosophy</p>
-          <h2>活動理念</h2>
-          <p class="section-lead">私たちは次の3つの活動理念を軸として、中央大学商学部の更なる発展を実現します。</p>
+        <div class="hero-next" aria-labelledby="next-heading">
+          <h2 id="next-heading" class="next-heading">次回のイベント</h2>
+          <div id="upcoming-list"></div>
         </div>
-        <div class="principles">
-          <div class="principle"><span>01</span><h3>中央大学商学部の活性化</h3></div>
-          <div class="principle"><span>02</span><h3>ゼミナール研究発表の包括的な協力</h3></div>
-          <div class="principle"><span>03</span><h3>学生生活の充実化</h3></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="upcoming" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Next Event</p>
-          <h2>次回のイベント</h2>
-        </div>
-        <div id="upcoming-list"></div>
       </div>
     </section>
 
     <section id="schedule" class="section">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Annual Schedule</p>
-          <h2>イベントの年間スケジュール</h2>
-          <p class="section-lead">当会では年間を通して様々なイベントを企画・運営しています。例年開催しているイベントをご紹介します。各イベントを押すと詳細が開きます。</p>
-        </div>
+        <h2 class="section-title">年間スケジュール</h2>
+        <p class="section-lead">例年開催しているイベントです。マス目のイベント名を押すと、下に詳細が開きます。</p>
 
-        <ol class="timeline">
-          <li>
-            <span class="month">3月〜4月</span>
-            <details>
-              <summary><span class="tag">新入生</span>新歓</summary>
+        <div class="year-grid">
+            <div class="month-cell" data-month="4"><span class="month-num">4<small>月</small></span><a class="chip" href="#shinkan">新歓</a></div>
+            <div class="month-cell" data-month="5"><span class="month-num">5<small>月</small></span><span class="chip-empty">—</span></div>
+            <div class="month-cell" data-month="6"><span class="month-num">6<small>月</small></span><a class="chip" href="#spring-meeting">春季ゼミ長会議</a></div>
+            <div class="month-cell" data-month="7"><span class="month-num">7<small>月</small></span><a class="chip chip-guest" href="#image-up">就活印象アップ講座</a></div>
+            <div class="month-cell" data-month="8"><span class="month-num">8<small>月</small></span><span class="chip-empty">—</span></div>
+            <div class="month-cell" data-month="9"><span class="month-num">9<small>月</small></span><a class="chip" href="#joint-briefing">ゼミ合同説明会</a></div>
+            <div class="month-cell" data-month="10"><span class="month-num">10<small>月</small></span><a class="chip" href="#joint-briefing">ゼミ合同説明会</a><a class="chip chip-guest" href="#alumni">卒業生にヒントをもらおう</a><a class="chip" href="#ball-games">秋季球技大会</a></div>
+            <div class="month-cell" data-month="11"><span class="month-num">11<small>月</small></span><a class="chip" href="#ball-games">秋季球技大会</a><a class="chip" href="#autumn-meeting">秋季ゼミ長会議</a></div>
+            <div class="month-cell" data-month="12"><span class="month-num">12<small>月</small></span><a class="chip" href="#presentation">プレゼンテーション大会</a></div>
+            <div class="month-cell" data-month="1"><span class="month-num">1<small>月</small></span><span class="chip-empty">—</span></div>
+            <div class="month-cell" data-month="2"><span class="month-num">2<small>月</small></span><span class="chip-empty">—</span></div>
+            <div class="month-cell" data-month="3"><span class="month-num">3<small>月</small></span><a class="chip" href="#shinkan">新歓</a></div>
+        </div>
+        <p class="legend"><span class="chip chip-guest">外部講師</span> は、学外から講師をお招きするイベントです。</p>
+
+        <div class="schedule-details">
+          <details id="shinkan">
+            <summary><span class="when">3月〜4月</span><span class="what">新歓</span><span class="tag">新入生</span></summary>
+            <div class="detail-body">
               <p>入学直後の商学部新入生の大学生活スタートを、履修登録の完了までお手伝いします。主に「履修相談」「新入生同士の交流会」「入会希望者向けの当会の説明会」を実施しています。</p>
               <p><strong>履修相談会</strong>：初めての履修登録で不安なことや分からないことが多い新入生のために、商学部の先輩が実際に履修した授業を参考にして1対1で履修相談を行います。履修に限らず、大学のことや1年生のうちにやっておいたほうがいいことなど、幅広く相談を受け付けています。</p>
               <p><strong>新入生同士の交流会</strong>：商学部の先輩や新入生同士でコミュニケーションをとれます。履修のことも当会のことも、気軽に話せる機会です。</p>
               <p><strong>入会希望者向けの説明会</strong>：Webサイトには載っていない細かい活動や、入会して何ができるのかを詳しくお伝えします。説明会に参加しても入会にはならないので、少しでも気になった方はぜひご参加ください。</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">6月</span>
-            <details>
-              <summary><span class="tag">ゼミ長</span>春季ゼミ長会議</summary>
+            </div>
+          </details>
+          <details id="spring-meeting">
+            <summary><span class="when">6月</span><span class="what">春季ゼミ長会議</span><span class="tag">ゼミ長</span></summary>
+            <div class="detail-body">
               <p>1〜3年生の演習科目のゼミ長を対象に行います。ゼミ長会議は原則半期に1回開催し、常任委員会または5つ以上のゼミナールから要請があった場合は臨時で開催します。</p>
               <p>主に当会の活動報告や議題・予算の承認をいただくために開催しており、各ゼミの学生から要望を聞く機会でもあります。</p>
               <p><strong>対象</strong>：演習Ⅰ・Ⅱ、国際教養演習、課題演習、ベーシック演習を履修しているゼミ長</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">7月</span>
-            <details>
-              <summary><span class="tag tag-guest">外部講師</span>自信をつける！就活印象アップ講座</summary>
+            </div>
+          </details>
+          <details id="image-up">
+            <summary><span class="when">7月</span><span class="what">自信をつける！就活印象アップ講座</span><span class="tag tag-guest">外部講師</span></summary>
+            <div class="detail-body">
               <p>就職活動では、見た目の印象が大きな評価ポイントになります。大手化粧品会社「資生堂ジャパン株式会社」の方を講師にお招きし、就活を控えた商学部生に向けて、身だしなみの基本や一人ひとりに合ったメイクアップ術を学ぶ講座を、男女に分けて開催します。</p>
               <p><strong>第一部</strong>：講演会形式で、スキンケアからファンデーションの塗り方、メイクアップ方法、表情の作り方などを学びます。</p>
               <p><strong>第二部</strong>：講師の方によるきめ細かなメイク指導と個別アドバイスを受けながら、参加者自身でフルメイクを行います。男性はワックスを使ったヘアアレンジも学びます。最後に質疑応答の時間もあります。</p>
               <p class="highlight">実施後アンケートの満足度・実践度：男性講座 99％／女性講座 96％</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">9月末〜10月上旬</span>
-            <details>
-              <summary><span class="tag">2年生</span>ゼミ合同説明会</summary>
+            </div>
+          </details>
+          <details id="joint-briefing">
+            <summary><span class="when">9月末〜10月上旬</span><span class="what">ゼミ合同説明会</span><span class="tag">2年生</span></summary>
+            <div class="detail-body">
               <p>3・4年次のゼミは、1・2年次のベーシック演習・課題演習とは異なり、自分の興味のあることを追究していく時間です。3年生から始まるゼミを選ぶため、2年生を対象に合同説明会を開催します。</p>
               <p>ゼミ生や先生から、研究内容やゼミの雰囲気、どんな人を求めているかなどを聞いて理解を深められます。「入ってみたらやりたいことと違った」を避けるための、ゼミ選びの参考になる機会です。</p>
               <p>気になるゼミの発表後には、ゼミ生や先生に直接質問することもできます。毎年、多くの2年生が参加しています。</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">10月</span>
-            <details>
-              <summary><span class="tag tag-guest">外部講師</span>卒業生にヒントをもらおう〜就活や学生生活〜</summary>
+            </div>
+          </details>
+          <details id="alumni">
+            <summary><span class="when">10月</span><span class="what">卒業生にヒントをもらおう〜就活や学生生活〜</span><span class="tag tag-guest">外部講師</span></summary>
+            <div class="detail-body">
               <p>同じ大学・同じ学部のOB・OGを自分で見つけて話を聞くのは、なかなかハードルが高いものです。そこで、就活の進め方や就職先が異なる中央大学商学部の卒業生3名を講師としてお招きします。</p>
               <p><strong>第一部</strong>：講師の方々に、現在のお仕事や学生時代についてお話しいただきます。</p>
               <p><strong>第二部</strong>：講師の方ごとのテーブルに分かれ、参加者と講師の方との座談会を行います。</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">10月〜11月</span>
-            <details>
-              <summary><span class="tag">全学年</span>ゼミ対抗秋季球技大会</summary>
+            </div>
+          </details>
+          <details id="ball-games">
+            <summary><span class="when">10月〜11月</span><span class="what">ゼミ対抗秋季球技大会</span><span class="tag">全学年</span></summary>
+            <div class="detail-body">
               <p>チームスポーツを通じて体を動かし、普段とは違う場でゼミ生同士の交流を深めることを目的とした大会です。毎年20以上のゼミからエントリーがあり、会場は数百人規模の参加者で賑わいます。</p>
               <p>「ゼミ生同士の仲をさらに深めたい」「チームスポーツが好き」という方のエントリーをお待ちしています。</p>
               <p><strong>対象</strong>：ベーシック演習を履修している1年生／課題演習を履修している2年生／国際教養演習・演習Ⅰ〜Ⅳを履修している3・4年生</p>
               <p><strong>種目</strong>：バレーボールなど（大会後の参加者アンケートの希望を参考に決めています）</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">11月</span>
-            <details>
-              <summary><span class="tag">ゼミ長</span>秋季ゼミ長会議</summary>
+            </div>
+          </details>
+          <details id="autumn-meeting">
+            <summary><span class="when">11月</span><span class="what">秋季ゼミ長会議</span><span class="tag">ゼミ長</span></summary>
+            <div class="detail-body">
               <p>1〜3年生の演習科目のゼミ長を対象に行います。ゼミ長会議は原則半期に1回開催し、常任委員会または5つ以上のゼミナールから要請があった場合は臨時で開催します。</p>
               <p>主に当会の活動報告や議題・予算の承認をいただくために開催しており、各ゼミの学生から要望を聞く機会でもあります。</p>
               <p><strong>対象</strong>：演習Ⅰ・Ⅱ、国際教養演習、課題演習、ベーシック演習を履修しているゼミ長</p>
-            </details>
-          </li>
-          <li>
-            <span class="month">12月</span>
-            <details>
-              <summary><span class="tag">3・4年生</span>プレゼンテーション大会</summary>
+            </div>
+          </details>
+          <details id="presentation">
+            <summary><span class="when">12月</span><span class="what">プレゼンテーション大会</span><span class="tag">3・4年生</span></summary>
+            <div class="detail-body">
               <p>演習Ⅰ〜Ⅳを履修している3・4年生のゼミ生が、日頃の研究成果をプレゼンテーション形式で発表し、審査員の先生方に評価・講評していただく大会です。今後の研究や卒業論文の仕上げに役立てることを目的としています。</p>
               <p>毎年約60名が参加し、ゼミ活動への意欲を高め、自身の研究を深める良い機会になっています。</p>
-            </details>
-          </li>
-        </ol>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <section id="archive" class="section section-alt">
+    <section id="archive" class="section section-paper">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Report</p>
-          <h2>開催報告</h2>
-        </div>
-        <div id="archive-list" class="archive-grid"></div>
+        <h2 class="section-title">開催報告</h2>
+        <div id="archive-list" class="archive-list"></div>
       </div>
     </section>
 
-    <section id="faq" class="section">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">FAQ</p>
-          <h2>よくある質問</h2>
+    <section id="about" class="section">
+      <div class="container about">
+        <h2 class="section-title">私たちについて</h2>
+        <div>
+          <p class="about-lead">中央大学商学部ゼミナール連合会は、次の3つを活動理念に、中央大学商学部の更なる発展を目指しています。</p>
+          <ul class="principles">
+            <li>中央大学商学部の活性化</li>
+            <li>ゼミナール研究発表の包括的な協力</li>
+            <li>学生生活の充実化</li>
+          </ul>
+          <p class="about-note">会室は多摩キャンパス5号館（商学部棟）6階の5612教室です。</p>
         </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-paper">
+      <div class="container">
+        <h2 class="section-title">よくある質問</h2>
         <div class="faq">
           <details>
             <summary>新入生ですが、履修登録の相談はできますか？</summary>
@@ -181,7 +173,7 @@
           </details>
           <details>
             <summary>ゼミ選びの参考になるイベントはありますか？</summary>
-            <p>9月末〜10月上旬に、2年生を対象とした「ゼミ合同説明会」を開催しています。ゼミ生や先生から研究内容や雰囲気を聞けて、発表後には直接質問もできます。</p>
+            <p>9月末〜10月上旬に、2年生を対象とした「ゼミ合同説明会」を開いています。ゼミ生や先生から研究内容や雰囲気を聞けて、発表後には直接質問もできます。</p>
           </details>
           <details>
             <summary>休講情報はどこで確認できますか？</summary>
@@ -199,32 +191,17 @@
       </div>
     </section>
 
-    <section id="contact" class="section section-alt">
+    <section id="contact" class="section">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Contact</p>
-          <h2>SNS・お問い合わせ</h2>
-          <p class="section-lead">XとInstagramでは、イベントのお知らせに加えて、授業がある日に休講情報を配信しています。お問い合わせはメールでお気軽にどうぞ。</p>
-        </div>
-        <div class="contact-grid">
-          <a class="contact-card" href="https://twitter.com/shozemiren" target="_blank" rel="noopener">
-            <span class="contact-label">X</span>
-            <strong>@shozemiren</strong>
-          </a>
-          <a class="contact-card" href="https://www.instagram.com/shozemiren" target="_blank" rel="noopener">
-            <span class="contact-label">Instagram</span>
-            <strong>@shozemiren</strong>
-          </a>
-          <div class="contact-card">
-            <span class="contact-label">Mail</span>
-            <strong>chuo.shozemiren(at)gmail.com</strong>
-            <small>※ (at) を @ に置き換えてください</small>
-          </div>
-        </div>
-        <div class="address">
-          <p><strong>中央大学商学部ゼミナール連合会</strong>　代表：石井祐樹</p>
-          <p>〒192-0393 東京都八王子市東中野742-1<br>中央大学多摩キャンパス 5号館（商学部棟）6階 5612教室（会室）</p>
-        </div>
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="section-lead">イベントのお知らせと、授業がある日の休講情報はXとInstagramで配信しています。お問い合わせはメールでどうぞ。</p>
+        <dl class="contact">
+          <div><dt>X</dt><dd><a href="https://twitter.com/shozemiren" target="_blank" rel="noopener">@shozemiren</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/shozemiren" target="_blank" rel="noopener">@shozemiren</a></dd></div>
+          <div><dt>メール</dt><dd>chuo.shozemiren(at)gmail.com<br><small>(at) を @ に置き換えてください</small></dd></div>
+          <div><dt>所在地</dt><dd>〒192-0393 東京都八王子市東中野742-1<br>中央大学多摩キャンパス 5号館（商学部棟）6階 5612教室</dd></div>
+          <div><dt>代表</dt><dd>石井祐樹</dd></div>
+        </dl>
       </div>
     </section>
   </main>
@@ -235,8 +212,8 @@
     </div>
   </footer>
 
-  <dialog id="lightbox" class="lightbox">
-    <button class="lightbox-close" aria-label="閉じる">&times;</button>
+  <dialog id="lightbox" class="lightbox" aria-label="写真の拡大表示">
+    <button class="lightbox-close" type="button">閉じる</button>
     <img alt="">
   </dialog>
 

@@ -1,4 +1,4 @@
-// data/events.js のイベント一覧から「次回の講演会」と「開催報告」を組み立てます。
+// data/events.js のイベント一覧から「次回のイベント」と「開催報告」を組み立てます。
 
 const PHOTO_DIR = "images/events/";
 const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
@@ -15,11 +15,16 @@ function parseDate(dateString) {
 }
 
 function formatDate(date) {
-  return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}（${WEEKDAYS[date.getDay()]}）`;
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日（${WEEKDAYS[date.getDay()]}）`;
 }
 
 function sampleBadge(event) {
   return event.sample ? `<span class="badge">サンプル</span>` : "";
+}
+
+function speakerLine(event) {
+  if (!event.speaker) return "";
+  return `<p class="speaker">講師：${escapeHtml(event.speaker)} 氏<span>${escapeHtml(event.affiliation)}</span></p>`;
 }
 
 function upcomingCard(event) {
@@ -28,45 +33,40 @@ function upcomingCard(event) {
     ? `<a class="button" href="${escapeHtml(event.apply)}" target="_blank" rel="noopener">参加を申し込む</a>`
     : "";
   return `
-    <article class="next-event">
-      <div class="next-date">
-        <span class="next-month">${date.getFullYear()}.${date.getMonth() + 1}</span>
-        <span class="next-day">${date.getDate()}</span>
-        <span class="next-weekday">${WEEKDAYS[date.getDay()]}曜日</span>
-      </div>
-      <div class="next-body">
-        ${sampleBadge(event)}
-        <h3>${escapeHtml(event.title)}</h3>
-        <p class="speaker"><strong>${escapeHtml(event.speaker)}</strong> 氏<span>${escapeHtml(event.affiliation)}</span></p>
-        <p>${escapeHtml(event.summary)}</p>
-        <dl class="meta">
-          <div><dt>日時</dt><dd>${formatDate(date)} ${escapeHtml(event.time)}</dd></div>
-          <div><dt>会場</dt><dd>${escapeHtml(event.place)}</dd></div>
-        </dl>
-        ${apply}
-      </div>
+    <article class="notice">
+      <p class="notice-date">
+        <span class="notice-md">${date.getMonth() + 1}<small>月</small>${date.getDate()}<small>日</small></span>
+        <span class="notice-wd">${WEEKDAYS[date.getDay()]}曜日 ${escapeHtml(event.time)}</span>
+      </p>
+      ${sampleBadge(event)}
+      <h3>${escapeHtml(event.title)}</h3>
+      ${speakerLine(event)}
+      <p class="notice-summary">${escapeHtml(event.summary)}</p>
+      <p class="notice-place">会場：${escapeHtml(event.place)}</p>
+      ${apply}
     </article>`;
+}
+
+function photoTag(event, photo) {
+  return `<button type="button" class="photo" data-zoom="${PHOTO_DIR}${escapeHtml(photo)}">` +
+    `<img src="${PHOTO_DIR}${escapeHtml(photo)}" alt="${escapeHtml(event.title)}の様子" loading="lazy"></button>`;
 }
 
 function archiveCard(event) {
   const date = parseDate(event.date);
   const photos = event.photos || [];
-  const cover = photos.length
-    ? `<img src="${PHOTO_DIR}${escapeHtml(photos[0])}" alt="${escapeHtml(event.title)}の様子" loading="lazy" data-zoom>`
-    : `<div class="cover-empty">No Photo</div>`;
-  const thumbs = photos.slice(1).map(photo =>
-    `<img src="${PHOTO_DIR}${escapeHtml(photo)}" alt="${escapeHtml(event.title)}の様子" loading="lazy" data-zoom>`
-  ).join("");
+  const gallery = photos.length
+    ? `<div class="gallery">${photos.map(p => photoTag(event, p)).join("")}</div>`
+    : "";
   return `
     <article class="report">
-      <div class="report-cover">${cover}</div>
-      <div class="report-body">
-        <time>${formatDate(date)}</time>${sampleBadge(event)}
+      <div class="report-text">
+        <p class="report-date">${formatDate(date)}${sampleBadge(event)}</p>
         <h3>${escapeHtml(event.title)}</h3>
-        <p class="speaker"><strong>${escapeHtml(event.speaker)}</strong> 氏<span>${escapeHtml(event.affiliation)}</span></p>
+        ${speakerLine(event)}
         <p>${escapeHtml(event.summary)}</p>
-        ${thumbs ? `<div class="thumbs">${thumbs}</div>` : ""}
       </div>
+      ${gallery}
     </article>`;
 }
 
@@ -84,20 +84,40 @@ function render() {
 
   document.getElementById("upcoming-list").innerHTML = upcoming.length
     ? upcoming.map(upcomingCard).join("")
-    : `<p class="empty">次回のイベントは準備中です。決まり次第お知らせします。</p>`;
+    : `<p class="empty">次回のイベントは準備中です。決まり次第、XとInstagramでもお知らせします。</p>`;
 
   document.getElementById("archive-list").innerHTML = past.length
     ? past.map(archiveCard).join("")
     : `<p class="empty">開催報告はまだありません。</p>`;
 }
 
+// 年間スケジュールで今月のマスに印をつける
+function markThisMonth() {
+  const month = new Date().getMonth() + 1;
+  const cell = document.querySelector(`.month-cell[data-month="${month}"]`);
+  if (cell) {
+    cell.classList.add("is-now");
+    cell.querySelector(".month-num").insertAdjacentHTML("beforeend", `<span class="now-label">今月</span>`);
+  }
+}
+
+// マス目のイベント名を押したら、下の詳細を開いてそこへ移動する
+function openFromHash() {
+  const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target && target.matches(".schedule-details details")) {
+    target.open = true;
+    target.scrollIntoView({ block: "start" });
+  }
+}
+
 function setupLightbox() {
   const box = document.getElementById("lightbox");
   const img = box.querySelector("img");
   document.addEventListener("click", e => {
-    if (e.target.matches("[data-zoom]")) {
-      img.src = e.target.src;
-      img.alt = e.target.alt;
+    const button = e.target.closest("[data-zoom]");
+    if (button) {
+      img.src = button.dataset.zoom;
+      img.alt = button.querySelector("img").alt;
       box.showModal();
     }
   });
@@ -105,4 +125,7 @@ function setupLightbox() {
 }
 
 render();
+markThisMonth();
 setupLightbox();
+window.addEventListener("hashchange", openFromHash);
+openFromHash();
