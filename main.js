@@ -24,7 +24,7 @@ function sampleBadge(event) {
 
 function speakerLine(event) {
   if (!event.speaker) return "";
-  return `<p class="speaker">講師：${escapeHtml(event.speaker)} 氏<span>${escapeHtml(event.affiliation)}</span></p>`;
+  return `<p class="speaker">講師：${escapeHtml(event.speaker)}<span>${escapeHtml(event.affiliation)}</span></p>`;
 }
 
 function upcomingCard(event) {
