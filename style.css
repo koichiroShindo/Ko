@@ -266,27 +266,88 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
 }
 
-/* ゼミ連とは */
-.about {
+/* 活動理念 */
+.section-tight { padding-top: 72px; }
+.section-lead { max-width: 680px; margin: 12px 0 0; color: var(--muted); }
+.principles {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-}
-.about p { margin-top: 0; }
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
-  margin-top: 24px;
 }
-.stats div {
-  padding: 20px;
+.principle {
+  padding: 28px;
   border: 1px solid var(--line);
-  border-radius: 12px;
-  text-align: center;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fff, var(--bg-alt));
 }
-.stats strong { display: block; font-size: 1.6rem; font-weight: 900; }
-.stats span { color: var(--muted); font-size: 0.85rem; }
+.principle span {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.principle h3 { margin: 8px 0 0; font-size: 1.1rem; line-height: 1.6; }
+
+/* 年間スケジュール */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--line);
+}
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  padding: 0 0 16px 28px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.month {
+  padding-top: 18px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.timeline details p { color: var(--ink); font-size: 0.95rem; }
+.timeline summary { justify-content: flex-start; align-items: center; flex-wrap: wrap; }
+.timeline summary::after { margin-left: auto; }
+.tag {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.tag-guest { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+.highlight {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  font-weight: 700;
+}
+.badge {
+  display: inline-block;
+  margin: 0 0 8px 8px;
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.next-body > .badge { margin-left: 0; }
 
 /* よくある質問 */
 .faq { display: grid; gap: 12px; }
@@ -302,29 +363,42 @@ summary {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
 }
 summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; color: var(--accent); font-size: 1.3rem; line-height: 1.4; }
 details[open] summary::after { content: "−"; }
 details p { margin: 12px 0 0; color: var(--muted); }
 
-/* お問い合わせ */
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
+/* SNS・お問い合わせ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
 }
-.contact-links a {
-  padding: 12px 20px;
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius);
+  background: #fff;
   color: var(--ink);
   text-decoration: none;
-  font-weight: 500;
+  overflow-wrap: anywhere;
 }
-.contact-links a:hover { border-color: var(--accent); color: var(--accent); }
+a.contact-card:hover { border-color: var(--accent); }
+.contact-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.contact-card small { color: var(--muted); }
+.address { margin-top: 32px; color: var(--muted); font-size: 0.95rem; }
+.address p { margin: 0 0 8px; }
+.address strong { color: var(--ink); }
 
 /* フッター */
 .site-footer {
@@ -343,6 +417,8 @@ details p { margin: 12px 0 0; color: var(--muted); }
   .next-date { flex-direction: row; gap: 12px; padding: 16px; }
   .next-day { font-size: 2rem; }
   .next-body { padding: 24px; }
-  .about { grid-template-columns: 1fr; gap: 0; }
+  .timeline li { grid-template-columns: 1fr; gap: 4px; padding-left: 20px; }
+  .month { padding-top: 0; }
+  .timeline li::before { top: 6px; }
   .archive-grid { grid-template-columns: 1fr; }
 }

@@ -18,6 +18,10 @@ function formatDate(date) {
   return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}（${WEEKDAYS[date.getDay()]}）`;
 }
 
+function sampleBadge(event) {
+  return event.sample ? `<span class="badge">サンプル</span>` : "";
+}
+
 function upcomingCard(event) {
   const date = parseDate(event.date);
   const apply = event.apply
@@ -31,6 +35,7 @@ function upcomingCard(event) {
         <span class="next-weekday">${WEEKDAYS[date.getDay()]}曜日</span>
       </div>
       <div class="next-body">
+        ${sampleBadge(event)}
         <h3>${escapeHtml(event.title)}</h3>
         <p class="speaker"><strong>${escapeHtml(event.speaker)}</strong> 氏<span>${escapeHtml(event.affiliation)}</span></p>
         <p>${escapeHtml(event.summary)}</p>
@@ -56,7 +61,7 @@ function archiveCard(event) {
     <article class="report">
       <div class="report-cover">${cover}</div>
       <div class="report-body">
-        <time>${formatDate(date)}</time>
+        <time>${formatDate(date)}</time>${sampleBadge(event)}
         <h3>${escapeHtml(event.title)}</h3>
         <p class="speaker"><strong>${escapeHtml(event.speaker)}</strong> 氏<span>${escapeHtml(event.affiliation)}</span></p>
         <p>${escapeHtml(event.summary)}</p>
@@ -79,7 +84,7 @@ function render() {
 
   document.getElementById("upcoming-list").innerHTML = upcoming.length
     ? upcoming.map(upcomingCard).join("")
-    : `<p class="empty">次回の講演会は準備中です。決まり次第お知らせします。</p>`;
+    : `<p class="empty">次回のイベントは準備中です。決まり次第お知らせします。</p>`;
 
   document.getElementById("archive-list").innerHTML = past.length
     ? past.map(archiveCard).join("")
