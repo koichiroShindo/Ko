@@ -323,6 +323,10 @@ details > p { padding-bottom: 12px; color: var(--c-sub); }
   cursor: zoom-in;
 }
 .photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+/* 告知ポスターは縦長のまま全体を見せる */
+.gallery-poster { grid-template-columns: minmax(0, 320px); }
+.photo-poster { background: none; }
+.photo-poster img { aspect-ratio: auto; object-fit: contain; }
 
 .older { margin-top: 40px; border-top: 1px solid var(--c-line); }
 .older > summary { color: var(--c-board); }

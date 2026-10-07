@@ -20,6 +20,7 @@
  *              shinkan（新歓・履修相談） spring-meeting（春季ゼミ長会議） ball-games（春季球技大会） camp（夏合宿）
  *              joint-briefing（合同説明会） ball-games-autumn（秋季球技大会） autumn-meeting（秋季ゼミ長会議） presentation（プレゼン大会）
  *              外部講師の講演会など、毎年の行事でないものには書きません
+ *   poster   : 写真が当日の様子ではなく告知ポスターのときは true にします（縦長のまま全体を表示します）
  *   sample   : true にすると「サンプル」と表示されます。本番の情報に差し替えたら、この行は消してください
  */
 window.EVENTS = [
@@ -83,7 +84,8 @@ window.EVENTS = [
     affiliation: "",
     summary: "商学部恒例の春の球技大会を、第2体育館でバスケットボールの大会として開きました。ゼミのメンバー3名以上でチームを組み、1位3万円・2位2万円・3位1万円、チームワーク賞5,000円の賞金を用意しました。",
     apply: "",
-    photos: []
+    photos: ["2026-06-20-1.jpg"],
+    poster: true
   },
   {
     series: "shinkan",
@@ -96,7 +98,8 @@ window.EVENTS = [
     affiliation: "",
     summary: "5号館6階の5610・5611教室で、12時〜15時に履修相談を開きました。商学部の先輩が履修登録を1から教え、軽食も用意しました。",
     apply: "",
-    photos: []
+    photos: ["2026-04-01-1.jpg"],
+    poster: true
   },
   {
     series: "presentation",
@@ -108,7 +111,8 @@ window.EVENTS = [
     affiliation: "",
     summary: "演習Ⅰ〜Ⅳ・国際教養演習を履修する3・4年生が、日頃のゼミの研究成果を発表し、審査員の先生方から直接アドバイスを受けました。1位のゼミには研究奨励金を用意し、中央大学の附属校の生徒にも見学を呼びかけた大会です。",
     apply: "",
-    photos: []
+    photos: ["2025-12-13-1.jpg"],
+    poster: true
   },
   {
     date: "2025-12-11",
@@ -119,7 +123,8 @@ window.EVENTS = [
     affiliation: "",
     summary: "大手企業とベンチャー企業で活躍されている2名をお招きし、第一部は講演会、第二部は座談会を行いました。就活を本格的に進めている3・4年生だけでなく、「就活って何から始めればいいの？」という1・2年生も対象にしたイベントです。",
     apply: "",
-    photos: []
+    photos: ["2025-12-11-1.jpg"],
+    poster: true
   },
   {
     series: "ball-games-autumn",
@@ -131,6 +136,7 @@ window.EVENTS = [
     affiliation: "",
     summary: "商学部恒例の秋の球技大会を、バレーボールの大会として開きました。ゼミのメンバー3名以上でチームを組んでエントリーする大会で、優勝賞金と参加賞を用意しました。",
     apply: "",
-    photos: []
+    photos: ["2025-10-18-1.jpg"],
+    poster: true
   }
 ];

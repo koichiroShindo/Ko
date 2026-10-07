@@ -48,8 +48,9 @@ function upcomingCard(event) {
 }
 
 function photoTag(event, photo) {
-  return `<button type="button" class="photo" data-zoom="${PHOTO_DIR}${escapeHtml(photo)}">` +
-    `<img src="${PHOTO_DIR}${escapeHtml(photo)}" alt="${escapeHtml(event.title)}の様子" loading="lazy"></button>`;
+  const alt = event.poster ? `${event.title}の告知ポスター` : `${event.title}の様子`;
+  return `<button type="button" class="photo${event.poster ? " photo-poster" : ""}" data-zoom="${PHOTO_DIR}${escapeHtml(photo)}">` +
+    `<img src="${PHOTO_DIR}${escapeHtml(photo)}" alt="${escapeHtml(alt)}" loading="lazy"></button>`;
 }
 
 function linkTag(event) {
@@ -61,7 +62,7 @@ function archiveCard(event) {
   const date = parseDate(event.date);
   const photos = event.photos || [];
   const gallery = photos.length
-    ? `<div class="gallery">${photos.map(p => photoTag(event, p)).join("")}</div>`
+    ? `<div class="gallery${event.poster ? " gallery-poster" : ""}">${photos.map(p => photoTag(event, p)).join("")}</div>`
     : "";
   return `
     <article class="report">
